@@ -1,4 +1,4 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../model/product.model';
 
 @Component({
@@ -9,6 +9,7 @@ import {Product} from '../model/product.model';
 export class ProductComponent implements OnInit {
 
   @Input() prod!: Product;
+  @Output() evtem = new EventEmitter<Product>();
 
   constructor() { }
 
@@ -17,7 +18,7 @@ export class ProductComponent implements OnInit {
 
   @HostListener('click')
   clickOnMe(): void {
-    console.log('You clicked on product');
+    this.evtem.emit(this.prod);
   }
 
 }

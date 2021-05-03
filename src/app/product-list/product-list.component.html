@@ -1,3 +1,9 @@
 <h2>Product List</h2>
-<app-product [prod]="p1"></app-product>
-<app-product [prod]="p2"></app-product>
+<div [hidden]="!product">
+ <span (click)="product = undefined">[X]</span> Vous avez cliqué sur {{product?.name}} ({{product?.category}})
+</div>
+<app-product [prod]="p1" (evtem)="receiveInfos($event)"></app-product>
+<app-product [prod]="p2" (evtem)="receiveInfos($event)"></app-product>
+<pre>
+{{product |json}}
+</pre>

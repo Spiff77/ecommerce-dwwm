@@ -10,10 +10,16 @@ export class ProductListComponent implements OnInit {
 
   p1 = new Product(1, '1984', 'Book', 'lorem ipsum dolor sit', 14);
   p2 = new Product(2, 'The Beatles', 'Music', 'lorem ipsum dolor sit', 14);
+  product: Product | undefined;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  receiveInfos(prod: Product): void {
+    this.product = prod;
+
+
+  }
 }
